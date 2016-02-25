@@ -1201,8 +1201,7 @@ sub create_tag {
     my $params = pop;
     my $path = sprintf('/projects/%s/repository/tags', (map { uri_escape($_) } @_));
     $log->infof( 'Making %s request against %s with params %s.', 'POST', $path, $params );
-    $self->post( $path, ( defined($params) ? $params : () ) );
-    return;
+    return $self->post( $path, ( defined($params) ? $params : () ) );
 }
 
 =head2 tree
